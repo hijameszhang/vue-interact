@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link :to="{name: 'home'}">dragging</router-link> |
+      <router-link :to="{name: 'about'}">About</router-link> |
+      <router-link :to="{name: 'dragAndDrop'}">dragAndDrop</router-link> |
+      <router-link :to="{name: 'resizeable'}">resizeable</router-link> |
+      <router-link :to="{name: 'tapDoubleTapHold'}">tapDoubleTapHold</router-link> |
+      <router-link :to="{name: 'snapping'}">snapping</router-link>
+
     </div>
     <router-view/>
   </div>

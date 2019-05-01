@@ -5,7 +5,12 @@ module.exports = {
   },
   'extends': [
     'plugin:vue/essential',
-    '@vue/standard'
+    // '@vue/standard',
+    '@vue/eslint-config-standard'
+  ],
+  "plugins": [
+    "vue",
+    "html"
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

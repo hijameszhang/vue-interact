@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 
 Vue.use(Router)
 
@@ -9,7 +8,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: () => import(/* webpackChunkName: "dragging" */ './views/Dragging.vue')
     },
     {
       path: '/about',
@@ -18,6 +17,26 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {
+      path: '/dragAndDrop',
+      name: 'dragAndDrop',
+      component: () => import(/* webpackChunkName: "dragAndDrop" */ './views/DragAndDrop.vue')
+    },
+    {
+      path: '/resizeable',
+      name: 'resizeable',
+      component: () => import(/* webpackChunkName: "resizeable" */ './views/Resizeable.vue')
+    },
+    {
+      path: '/tapDoubleTapHold',
+      name: 'tapDoubleTapHold',
+      component: () => import(/* webpackChunkName: "tapDoubleTapHold" */ './views/TapDoubleTapHold.vue')
+    },
+    {
+      path: '/snapping',
+      name: 'snapping',
+      component: () => import(/* webpackChunkName: "snapping" */ './views/Snapping.vue')
     }
   ]
 })
