@@ -11,9 +11,10 @@ export default function ($resizeDragElement) {
       ]
     })
     .resizable({
-    // resize from all edges and corners
-    // 可以通过哪些边来调整元素的大小, 此处为: 上, 下, 左, 右 都可以resize
-      edges: { left: true, right: true, bottom: true, top: true },
+      preserveAspectRatio: false,
+      // resize from all edges and corners
+      // 可以通过哪些边来调整元素的大小, 此处为: 上, 下, 左, 右 都可以resize
+      edges: { left: false, right: true, bottom: true, top: false },
 
       modifiers: [
       // keep the edges inside the parent
