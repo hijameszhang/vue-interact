@@ -6,7 +6,8 @@
       <router-link :to="{name: 'dragAndDrop'}">dragAndDrop</router-link> |
       <router-link :to="{name: 'resizeable'}">resizeable</router-link> |
       <router-link :to="{name: 'tapDoubleTapHold'}">tapDoubleTapHold</router-link> |
-      <router-link :to="{name: 'snapping'}">snapping</router-link>
+      <router-link :to="{name: 'snapping'}">snapping</router-link> |
+      <router-link :to="{name: 'hello'}">hello</router-link>
 
     </div>
     <router-view/>

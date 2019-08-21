@@ -37,6 +37,11 @@ export default new Router({
       path: '/snapping',
       name: 'snapping',
       component: () => import(/* webpackChunkName: "snapping" */ './views/Snapping.vue')
+    },
+    {
+      path: '/hello',
+      name: 'hello',
+      component: () => import(/* webpackChunkName: "snapping" */ './views/Hello.vue')
     }
   ]
 })
