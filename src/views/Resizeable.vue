@@ -32,6 +32,7 @@ export default {
     border: 1px solid #ccc;
   .demo{
     display:inline-block;
+    position: absolute;
     width: 200px;
     height: 200px;
     touch-action: none;
