@@ -1,9 +1,19 @@
 import interact from 'interactjs'
-export default function ($resizeDragElement) {
-  interact($resizeDragElement)
+let maxZindex = 0
+export default function ($selector, initZindex = 0) {
+  maxZindex = initZindex
+  interact($selector)
     .draggable({
       onmove: dragMoveListener,
       modifiers: [
+        // interact.modifiers.snap({
+        //   targets: [
+        //     //  x轴方向每移动一步是30px, y轴方向每移动一步是30px, 小于30px不移动
+        //     interact.createSnapGrid({ x: 10, y: 10 })
+        //   ],
+        //   range: Infinity,
+        //   relativePoints: [ { x: 0, y: 0 } ]
+        // }),
         interact.modifiers.restrict({
           restriction: 'parent',
           elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
@@ -25,12 +35,12 @@ export default function ($resizeDragElement) {
 
         // minimum size
         interact.modifiers.restrictSize({
-          min: { width: 100, height: 50 }
+          min: { width: 10, height: 5 }
         })
       ],
 
       // 是否启用惯性
-      inertia: false
+      inertia: true
     })
     .on('resizemove', function (event) {
       var target = event.target
@@ -51,6 +61,17 @@ export default function ($resizeDragElement) {
       target.setAttribute('data-x', x)
       target.setAttribute('data-y', y)
       target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
+    })
+    .on('doubletap', function (event) {
+      console.log('hello james')
+    })
+    .on('hold', function (event) {
+
+    })
+    .on('tap', function (event) {
+      event.target.style.zIndex = maxZindex
+      maxZindex += 1
+      console.log('click, or on touch')
     })
 }
 
